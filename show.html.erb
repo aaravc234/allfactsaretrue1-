@@ -1,0 +1,32 @@
+<!-- app/views/books/show.html.erb -->
+<header>
+    <h1><%= @book_title %></h1> <!-- Ruby variable -->
+    <p class="authors">Authors: Jake & Jamie Robinson</p>
+    
+    <% if user_signed_in? %>
+      <p>Welcome back, <%= current_user.username %>!</p>
+    <% else %>
+      <%= link_to "Sign Up to Comment", new_user_registration_path %>
+    <% end %>
+</header>
+
+<main>
+    <section id="book">
+        <h2>The Book</h2>
+        <!-- This Ruby code loops through your database facts automatically -->
+        <% @facts.each do |fact| %>
+          <div class="fact">
+            <h3><%= fact.title %></h3>
+            <p><%= fact.body %></p>
+            
+            <!-- Comment Section for each fact -->
+            <div class="comments">
+              <h4>Comments</h4>
+              <% fact.comments.each do |comment| %>
+                <p><strong><%= comment.user.username %>:</strong> <%= comment.content %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    </section>
+</main>
