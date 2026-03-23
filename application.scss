@@ -1,1 +1,22 @@
+/* app/assets/stylesheets/application.scss */
+$brand-green: #4CAF50;
+$dark-grey: #333;
+
+header {
+    background-color: $brand-green;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    
+    .authors {
+        font-style: italic;
+    }
+}
+
+.fact {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2rem;
+    
+    h3 { color: $dark-grey; }
+}
 
